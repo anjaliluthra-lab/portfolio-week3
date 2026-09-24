@@ -15,18 +15,23 @@ body {
 /* Navbar */
 /* Lays out logo and links side by side */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px 40px;
   background-color: #1e293b;
+  overflow: hidden;
 }
+/* overflow: hidden contains the floated elements below */
 
 /* Styles the logo text */
 .navbar .logo {
   color: white;
   font-weight: 700;
   font-size: 1.2rem;
+  float: left;
+}
+/* float: left positions the logo on the left side */
+
+.navbar .nav-links {
+  float: right;
 }
 
 /* Styles each nav link, removes underline */
@@ -188,9 +193,14 @@ footer {
 /* Responsive */
 /* Adjusts layout for small screens (phones) */
 @media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
+  .navbar .logo,
+  .navbar .nav-links {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  .nav-links a {
+    margin: 5px 10px;
   }
   .hero h1 {
     font-size: 1.8rem;
